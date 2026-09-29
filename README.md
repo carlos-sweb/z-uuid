@@ -4,6 +4,13 @@ UUID generation for Zig — currently **v4** (random) and **v7** (time-ordered),
 per [RFC 9562](https://www.rfc-editor.org/rfc/rfc9562). Pure Zig, zero
 dependencies beyond `std`.
 
+**Autodocs:** [carlos-sweb.github.io/z-uuid](https://carlos-sweb.github.io/z-uuid/)
+
+```bash
+zig build docs          # writes zig-out/docs
+python3 -m http.server -d zig-out/docs 8080
+```
+
 ## Why v4 and v7
 
 v4 is the classic fully-random UUID. v7 embeds a millisecond Unix
@@ -44,9 +51,16 @@ pub fn main(init: std.process.Init) !void {
     const id = Uuid.v4(random);
     std.debug.print("{f}\n", .{id}); // e.g. 3f2504e0-4f89-41d3-9a0c-0305e82c3301
 
-    const ordered = Uuid.v7(random, io);
+    const one_shot = try Uuid.v7(random, io);
     var buf: [36]u8 = undefined;
-    std.debug.print("{s}\n", .{ordered.toString(&buf)});
+    std.debug.print("{s}\n", .{one_shot.toString(&buf)});
+
+    // Monotonic v7 (RFC 9562 §6.2 Method 1): keep the generator next to
+    // the ID stream. Two calls in the same millisecond still sort.
+    var gen: Uuid.V7Generator = .{};
+    const a = try gen.next(random, io);
+    const b = try gen.next(random, io);
+    std.debug.assert(a.order(b) == .lt);
 
     const parsed = try Uuid.parse("3f2504e0-4f89-41d3-9a0c-0305e82c3301");
     std.debug.assert(parsed.version() == 4);
@@ -56,16 +70,23 @@ pub fn main(init: std.process.Init) !void {
 ## API
 
 - `Uuid.v4(random: std.Random) Uuid`
-- `Uuid.v7(random: std.Random, io: std.Io) Uuid` — timestamp from
-  `std.Io.Clock.real.now(io)`
-- `Uuid.v7At(random: std.Random, unix_ms: i64) Uuid` — explicit clock, for
-  deterministic tests (no `io` needed)
+- `Uuid.v7(random: std.Random, io: std.Io) error{InvalidTimestamp}!Uuid` —
+  timestamp from `std.Io.Clock.real.now(io)`. Fails if the clock is outside
+  the RFC 48-bit Unix-ms range `[0, 2^48-1]`
+- `Uuid.v7At(random: std.Random, unix_ms: i64) error{InvalidTimestamp}!Uuid`
+  — explicit clock, for deterministic tests (no `io` needed). Stateless:
+  `rand_a` is random, so same-millisecond values may sort either way
+- `Uuid.V7Generator` — monotonic v7 (12-bit `rand_a` counter, state owned
+  by the caller). `next(random, io)` / `nextAt(random, unix_ms)`
 - `Uuid.parse(text: []const u8) error{InvalidFormat}!Uuid` — canonical
-  lowercase-or-uppercase `8-4-4-4-12` dashed form only
+  lowercase-or-uppercase `8-4-4-4-12` dashed form only; does not rewrite
+  version or variant bits
 - `Uuid.toString(self, buf: *[36]u8) []const u8` — no-alloc formatter
 - `Uuid.format` — so `{f}`/`std.debug.print` work directly on a `Uuid`
 - `Uuid.version(self) u4`
 - `Uuid.eql(a, b) bool`
+- `Uuid.order(a, b) std.math.Order` — lexicographic on RFC bytes; for v7
+  this is chronological
 
 The caller always supplies the `std.Random` source explicitly (e.g. via
 `std.Random.IoSource{ .io = io }.interface()`, or a seeded
