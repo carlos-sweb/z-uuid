@@ -1,0 +1,6 @@
+{
+  "command": "zig build bench-behavior -Doptimize=ReleaseFast",
+  "seed": 24155490,
+  "source": "Counted(DefaultPrng)",
+  "source_sha256": "b41f351e87a2654b03571bf83298b8b676bea1f8b73dfd13a5e4fc86c44d3357"
+}

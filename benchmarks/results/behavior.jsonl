@@ -1,0 +1,2 @@
+{"version":"old","ids":100000,"stateless_rng_calls":200000,"stateless_rng_bytes":1000000,"generator_rng_calls":100046,"generator_rng_bytes":800092,"generator_reseeds":46,"fixed_clock_ahead_ms":45}
+{"version":"current","ids":100000,"stateless_rng_calls":200000,"stateless_rng_bytes":1000000,"generator_rng_calls":100000,"generator_rng_bytes":800064,"generator_reseeds":32,"fixed_clock_ahead_ms":31}

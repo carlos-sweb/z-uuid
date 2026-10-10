@@ -1,0 +1,244 @@
+{
+  "old": {
+    "text_bytes": 2643,
+    "rodata_bytes": 19,
+    "total_bytes": 2662,
+    "sections": {
+      ".text": 2643,
+      ".rodata.str1.1": 17,
+      ".rodata": 2,
+      ".debug_loc": 6061,
+      ".debug_abbrev": 767,
+      ".debug_info": 9588,
+      ".debug_ranges": 704,
+      ".debug_str": 7748,
+      ".debug_pubnames": 1542,
+      ".debug_pubtypes": 2353,
+      ".eh_frame": 424,
+      ".debug_line": 2050,
+      ".note.GNU-stack": 0
+    },
+    "command": [
+      "zig",
+      "build",
+      "bench-size",
+      "-Doptimize=ReleaseFast",
+      "-Dsize-variant=old"
+    ]
+  },
+  "current": {
+    "text_bytes": 1930,
+    "rodata_bytes": 514,
+    "total_bytes": 2444,
+    "sections": {
+      ".text": 1930,
+      ".rodata": 514,
+      ".debug_loc": 4472,
+      ".debug_abbrev": 754,
+      ".debug_info": 9979,
+      ".debug_ranges": 544,
+      ".debug_str": 7643,
+      ".debug_pubnames": 1546,
+      ".debug_pubtypes": 2325,
+      ".eh_frame": 384,
+      ".debug_line": 1721,
+      ".note.GNU-stack": 0
+    },
+    "command": [
+      "zig",
+      "build",
+      "bench-size",
+      "-Doptimize=ReleaseFast",
+      "-Dsize-variant=current"
+    ]
+  },
+  "order128": {
+    "text_bytes": 2310,
+    "rodata_bytes": 35,
+    "total_bytes": 2345,
+    "sections": {
+      ".text": 2310,
+      ".rodata.cst8": 16,
+      ".rodata.str1.1": 17,
+      ".rodata": 2,
+      ".debug_loc": 4237,
+      ".debug_abbrev": 752,
+      ".debug_info": 9608,
+      ".debug_ranges": 816,
+      ".debug_str": 7714,
+      ".debug_pubnames": 1514,
+      ".debug_pubtypes": 2362,
+      ".eh_frame": 416,
+      ".debug_line": 2003,
+      ".note.GNU-stack": 0
+    },
+    "command": [
+      "zig",
+      "build",
+      "bench-size",
+      "-Doptimize=ReleaseFast",
+      "-Dsize-variant=order128"
+    ]
+  },
+  "order64": {
+    "text_bytes": 1946,
+    "rodata_bytes": 19,
+    "total_bytes": 1965,
+    "sections": {
+      ".text": 1946,
+      ".rodata.str1.1": 17,
+      ".rodata": 2,
+      ".debug_loc": 4080,
+      ".debug_abbrev": 752,
+      ".debug_info": 9879,
+      ".debug_ranges": 464,
+      ".debug_str": 7709,
+      ".debug_pubnames": 1514,
+      ".debug_pubtypes": 2353,
+      ".eh_frame": 424,
+      ".debug_line": 1882,
+      ".note.GNU-stack": 0
+    },
+    "command": [
+      "zig",
+      "build",
+      "bench-size",
+      "-Doptimize=ReleaseFast",
+      "-Dsize-variant=order64"
+    ]
+  },
+  "parse_fixed": {
+    "text_bytes": 3683,
+    "rodata_bytes": 19,
+    "total_bytes": 3702,
+    "sections": {
+      ".text": 3683,
+      ".rodata.str1.1": 17,
+      ".rodata": 2,
+      ".debug_loc": 8726,
+      ".debug_abbrev": 765,
+      ".debug_info": 9741,
+      ".debug_ranges": 656,
+      ".debug_str": 7750,
+      ".debug_pubnames": 1564,
+      ".debug_pubtypes": 2367,
+      ".eh_frame": 464,
+      ".debug_line": 2666,
+      ".note.GNU-stack": 0
+    },
+    "command": [
+      "zig",
+      "build",
+      "bench-size",
+      "-Doptimize=ReleaseFast",
+      "-Dsize-variant=parse_fixed"
+    ]
+  },
+  "parse_table": {
+    "text_bytes": 3379,
+    "rodata_bytes": 273,
+    "total_bytes": 3652,
+    "sections": {
+      ".text": 3379,
+      ".rodata.str1.1": 17,
+      ".rodata": 256,
+      ".debug_loc": 8881,
+      ".debug_abbrev": 761,
+      ".debug_info": 9708,
+      ".debug_ranges": 704,
+      ".debug_str": 7759,
+      ".debug_pubnames": 1562,
+      ".debug_pubtypes": 2379,
+      ".eh_frame": 464,
+      ".debug_line": 2614,
+      ".note.GNU-stack": 0
+    },
+    "command": [
+      "zig",
+      "build",
+      "bench-size",
+      "-Doptimize=ReleaseFast",
+      "-Dsize-variant=parse_table"
+    ]
+  },
+  "hex_pairs": {
+    "text_bytes": 2659,
+    "rodata_bytes": 514,
+    "total_bytes": 3173,
+    "sections": {
+      ".text": 2659,
+      ".rodata": 514,
+      ".debug_loc": 5916,
+      ".debug_abbrev": 776,
+      ".debug_info": 9776,
+      ".debug_ranges": 656,
+      ".debug_str": 7750,
+      ".debug_pubnames": 1549,
+      ".debug_pubtypes": 2382,
+      ".eh_frame": 392,
+      ".debug_line": 2000,
+      ".note.GNU-stack": 0
+    },
+    "command": [
+      "zig",
+      "build",
+      "bench-size",
+      "-Doptimize=ReleaseFast",
+      "-Dsize-variant=hex_pairs"
+    ]
+  },
+  "grouped": {
+    "text_bytes": 2611,
+    "rodata_bytes": 19,
+    "total_bytes": 2630,
+    "sections": {
+      ".text": 2611,
+      ".rodata.str1.1": 17,
+      ".rodata": 2,
+      ".debug_loc": 6842,
+      ".debug_abbrev": 747,
+      ".debug_info": 9243,
+      ".debug_ranges": 944,
+      ".debug_str": 7705,
+      ".debug_pubnames": 1520,
+      ".debug_pubtypes": 2382,
+      ".eh_frame": 416,
+      ".debug_line": 2018,
+      ".note.GNU-stack": 0
+    },
+    "command": [
+      "zig",
+      "build",
+      "bench-size",
+      "-Doptimize=ReleaseFast",
+      "-Dsize-variant=grouped"
+    ]
+  },
+  "grouped_policy": {
+    "text_bytes": 2611,
+    "rodata_bytes": 19,
+    "total_bytes": 2630,
+    "sections": {
+      ".text": 2611,
+      ".rodata.str1.1": 17,
+      ".rodata": 2,
+      ".debug_loc": 6842,
+      ".debug_abbrev": 747,
+      ".debug_info": 9243,
+      ".debug_ranges": 944,
+      ".debug_str": 7703,
+      ".debug_pubnames": 1520,
+      ".debug_pubtypes": 2380,
+      ".eh_frame": 416,
+      ".debug_line": 2014,
+      ".note.GNU-stack": 0
+    },
+    "command": [
+      "zig",
+      "build",
+      "bench-size",
+      "-Doptimize=ReleaseFast",
+      "-Dsize-variant=grouped_policy"
+    ]
+  }
+}

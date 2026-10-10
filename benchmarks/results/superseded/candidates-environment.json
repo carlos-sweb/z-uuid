@@ -1,0 +1,34 @@
+{
+  "platform": "Linux-7.2.7-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "cpu": "Intel(R) Core(TM) i3-10100F CPU @ 3.60GHz",
+  "python": "3.14.7",
+  "zig": "0.17.0",
+  "command": [
+    "zig",
+    "build",
+    "bench",
+    "-Doptimize=ReleaseFast",
+    "--",
+    "--json",
+    "--suite",
+    "candidates",
+    "--min-ms",
+    "100"
+  ],
+  "source_sha256": "46c9d99c166ab4f4797d5a581fbf82e5d603aee0b577e4cd576866bc2a26826a",
+  "baseline_sha256": "d987bde5c0d17c1e5c5ccc6c8593ddb5ec0594f498034ce48da981cd528cbbdd",
+  "started_utc": "2026-10-10T02:01:22Z",
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "filter": "",
+  "minimum_ms": 100,
+  "sessions": 3
+}

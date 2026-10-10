@@ -139,7 +139,7 @@ test "parse copies hex as-is without stamping version or variant" {
     try testing.expectEqual(@as(u8, 0), nil_uuid.bytes[8] >> 6);
 }
 
-test "RFC 9562 Appendix A.4 UUIDv7 vector" {
+test "RFC 9562 Appendix A.6 UUIDv7 vector" {
     // unix_ts_ms = 0x017F22E279B0, ver = 7, rand_a = 0xCC3,
     // var = 10, rand_b = 0x18C4DC0C0C07398F
     const text = "017F22E2-79B0-7CC3-98C4-DC0C0C07398F";

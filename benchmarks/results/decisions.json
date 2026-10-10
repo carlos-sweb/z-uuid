@@ -1,0 +1,108 @@
+{
+  "order": {
+    "winner": "order64",
+    "candidates": [
+      {
+        "variant": "order128",
+        "accepted": false,
+        "primary_speedup": 0.9993560360764611,
+        "reasons": [
+          "order_v4/prng session 1: regression 37.7%",
+          "order_v4/prng session 2: regression 38.3%",
+          "order_v4/prng session 3: regression 37.3%",
+          "primary case does not improve time by >=5% with CI excluding parity in all sessions"
+        ]
+      },
+      {
+        "variant": "order64",
+        "accepted": true,
+        "primary_speedup": 4.67169854590069,
+        "reasons": []
+      }
+    ]
+  },
+  "parse": {
+    "winner": "old",
+    "candidates": [
+      {
+        "variant": "parse_fixed",
+        "accepted": false,
+        "primary_speedup": 0.7600103070936607,
+        "reasons": [
+          "parse_lower/prng session 1: regression 31.5%",
+          "parse_lower/prng session 2: regression 31.6%",
+          "parse_lower/prng session 3: regression 31.8%",
+          "parse_upper/prng session 1: regression 30.5%",
+          "parse_upper/prng session 2: regression 31.0%",
+          "parse_upper/prng session 3: regression 31.2%",
+          "parse_mixed/prng session 1: regression 31.4%",
+          "parse_mixed/prng session 2: regression 31.7%",
+          "parse_mixed/prng session 3: regression 30.8%",
+          "parse_invalid_early/prng session 1: regression 70.8%",
+          "parse_invalid_early/prng session 2: regression 70.3%",
+          "parse_invalid_early/prng session 3: regression 71.0%",
+          "parse_invalid_late/prng session 1: regression 32.8%",
+          "parse_invalid_late/prng session 2: regression 32.6%",
+          "parse_invalid_late/prng session 3: regression 32.7%",
+          "parse_invalid_dash/prng session 1: regression 197.6%",
+          "parse_invalid_dash/prng session 2: regression 205.6%",
+          "parse_invalid_dash/prng session 3: regression 202.4%",
+          "primary case does not improve time by >=5% with CI excluding parity in all sessions"
+        ]
+      },
+      {
+        "variant": "parse_table",
+        "accepted": false,
+        "primary_speedup": 6.888232729435653,
+        "reasons": [
+          "parse_invalid_early/prng session 1: regression 72.7%",
+          "parse_invalid_early/prng session 2: regression 72.2%",
+          "parse_invalid_early/prng session 3: regression 72.7%",
+          "parse_invalid_dash/prng session 1: regression 203.1%",
+          "parse_invalid_dash/prng session 2: regression 206.0%",
+          "parse_invalid_dash/prng session 3: regression 200.3%"
+        ]
+      }
+    ]
+  },
+  "format": {
+    "winner": "hex_pairs",
+    "candidates": [
+      {
+        "variant": "hex_pairs",
+        "accepted": true,
+        "primary_speedup": 1.6171924036958583,
+        "reasons": []
+      }
+    ]
+  },
+  "stateless_rng": {
+    "winner": "old",
+    "candidates": [
+      {
+        "variant": "grouped",
+        "accepted": false,
+        "primary_speedup": 1.677509539968605,
+        "reasons": [
+          "v7_at/prng session 1: regression 250.0%",
+          "v7_at/prng session 2: regression 254.4%",
+          "v7_at/prng session 3: regression 251.9%",
+          "v7_string/prng session 1: regression 31.9%",
+          "v7_string/prng session 2: regression 33.8%",
+          "v7_string/prng session 3: regression 32.3%"
+        ]
+      }
+    ]
+  },
+  "generator_rng": {
+    "winner": "grouped",
+    "candidates": [
+      {
+        "variant": "grouped",
+        "accepted": true,
+        "primary_speedup": 1.8158474135844698,
+        "reasons": []
+      }
+    ]
+  }
+}
